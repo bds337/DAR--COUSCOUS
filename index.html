@@ -262,7 +262,7 @@
         <div class="booking-layout">
           <form class="booking-card" id="booking-form">
             <h3>Demande de réservation</h3>
-            <p>Remplissez les informations et votre message s’ouvrira dans WhatsApp pour être envoyé.</p>
+            <p>Remplissez les informations. WhatsApp s’ouvrira avec votre message : appuyez ensuite sur « Envoyer » pour nous le transmettre.</p>
             <div class="form-grid">
               <div class="field">
                 <label for="guest-name">Votre nom</label>
@@ -293,8 +293,8 @@
                 <textarea id="booking-note" name="note" rows="3"></textarea>
               </div>
             </div>
-            <button class="button" type="submit">Continuer sur WhatsApp</button>
-            <p class="help">Votre demande n’est pas confirmée tant que nous ne vous avons pas répondu.</p>
+            <button class="button" type="submit">Ouvrir WhatsApp pour envoyer</button>
+            <p class="help">Important : le site ne peut pas envoyer le message à votre place. Dans WhatsApp, appuyez sur « Envoyer ». Votre demande n’est confirmée qu’après notre réponse.</p>
           </form>
 
           <aside class="contact" id="contact">
@@ -399,7 +399,7 @@
         `Heure : ${formData.get("time")}`,
         formData.get("note") ? `Message : ${formData.get("note")}` : ""
       ].filter(Boolean).join("\n");
-      window.open(`https://wa.me/21622774032?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+      window.location.assign(`https://wa.me/21622774032?text=${encodeURIComponent(message)}`);
     });
 
     document.querySelector("#year").textContent = new Date().getFullYear();
