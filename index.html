@@ -293,8 +293,9 @@
                 <textarea id="booking-note" name="note" rows="3"></textarea>
               </div>
             </div>
-            <button class="button" type="submit">Ouvrir WhatsApp pour envoyer</button>
-            <p class="help">Important : le site ne peut pas envoyer le message à votre place. Dans WhatsApp, appuyez sur « Envoyer ». Votre demande n’est confirmée qu’après notre réponse.</p>
+            <button class="button" type="submit">Préparer le lien WhatsApp</button>
+            <p class="help">Après avoir ouvert WhatsApp, appuyez sur « Envoyer » pour transmettre votre demande. Elle sera confirmée après notre réponse.</p>
+            <p class="help" id="whatsapp-result" role="status" hidden></p>
           </form>
 
           <aside class="contact" id="contact">
@@ -399,7 +400,16 @@
         `Heure : ${formData.get("time")}`,
         formData.get("note") ? `Message : ${formData.get("note")}` : ""
       ].filter(Boolean).join("\n");
-      window.location.assign(`https://wa.me/21629919586?text=${encodeURIComponent(message)}`);
+      const link = document.createElement("a");
+      link.href = `https://wa.me/21629919586?text=${encodeURIComponent(message)}`;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "Envoyer sur WhatsApp";
+
+      const result = document.querySelector("#whatsapp-result");
+      result.replaceChildren(link);
+      result.hidden = false;
+      link.focus();
     });
 
     document.querySelector("#year").textContent = new Date().getFullYear();
