@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172d2a">
+  <meta name="description" content="Découvrez Dar Couscous à Tunis, une cuisine tunisienne généreuse. Contact et demandes de réservation par WhatsApp.">
+  <title>Dar Couscous — Cuisine tunisienne à Tunis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --green: #172d2a;
+      --green-soft: #40514b;
+      --cream: #f8f5ed;
+      --paper: #fffdf8;
+      --gold: #b38a4a;
+      --line: rgba(179, 138, 74, .3);
+      --shadow: 0 20px 55px rgba(37, 43, 35, .12);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+    body { margin: 0; background: var(--paper); color: var(--green); font-family: var(--sans); line-height: 1.65; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    :focus-visible { outline: 3px solid #d5a74d; outline-offset: 3px; }
+    .container { width: min(1120px, calc(100% - 36px)); margin-inline: auto; }
+    .section { padding: 88px 0; }
+    .eyebrow { color: var(--gold); font-size: .75rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; }
+    h2 { margin: 12px 0 16px; font-size: clamp(2.2rem, 5vw, 3.6rem); }
+    .section-heading { max-width: 700px; margin: 0 auto 42px; text-align: center; }
+    .section-heading p, .muted { color: #68716b; }
+    .button {
+      display: inline-flex; min-height: 48px; align-items: center; justify-content: center;
+      padding: 12px 22px; border: 1px solid transparent; border-radius: 999px;
+      background: var(--gold); color: white; font-weight: 700; text-decoration: none;
+      cursor: pointer; transition: background-color .2s ease, transform .2s ease;
+    }
+    .button:hover { background: #98723a; transform: translateY(-2px); }
+    .button-outline { border-color: #ffffff9c; background: transparent; color: white; }
+    .button-outline:hover { background: white; color: var(--green); }
+
+    .topbar { padding: 8px 0; background: var(--green); color: #f5ead5; font-size: .82rem; }
+    .topbar-inner { display: flex; justify-content: space-between; gap: 12px; }
+    .topbar a { color: #dfc99e; text-decoration: none; }
+    .nav { position: sticky; top: 0; z-index: 5; border-bottom: 1px solid var(--line); background: #fffdf8ed; backdrop-filter: blur(12px); }
+    .nav-inner { position: relative; display: flex; min-height: 74px; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font: 700 1.5rem var(--serif); text-decoration: none; white-space: nowrap; }
+    .brand span { color: var(--gold); font-style: italic; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: var(--green-soft); font-size: .9rem; text-decoration: none; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-toggle { display: none; border: 0; background: none; color: var(--green); font-size: 1.5rem; cursor: pointer; }
+
+    .hero { position: relative; display: flex; min-height: 650px; align-items: center; overflow: hidden; background: #263b32; color: white; }
+    .hero::after { position: absolute; inset: 0; background: linear-gradient(90deg, #0f201cdd, #0f201c9c 55%, #0f201c26); content: ""; }
+    .hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-content { position: relative; z-index: 1; padding-block: 90px; }
+    .hero h1 { max-width: 850px; margin: 18px 0; font-size: clamp(3rem, 7vw, 6.2rem); letter-spacing: -.04em; }
+    .hero h1 em { color: #dfc99e; }
+    .hero-copy { max-width: 590px; color: #f3eee4; font-size: 1.08rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+    .story { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; }
+    .photo-frame { position: relative; padding: 11px; border: 1px solid var(--gold); background: white; box-shadow: var(--shadow); }
+    .photo-frame img { width: 100%; height: 440px; object-fit: cover; }
+    .photo-label { position: absolute; right: -12px; bottom: 24px; padding: 14px 20px; background: var(--paper); box-shadow: var(--shadow); font: 600 1.1rem var(--serif); }
+    .story-copy p { color: #68716b; }
+    .tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+    .tag { padding: 8px 13px; border: 1px solid var(--line); border-radius: 99px; font-size: .83rem; }
+
+    .menu-section { background: var(--cream); }
+    .filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-bottom: 28px; }
+    .filter { padding: 8px 16px; border: 1px solid var(--line); border-radius: 99px; background: transparent; cursor: pointer; }
+    .filter[aria-pressed="true"], .filter:hover { background: var(--green); color: white; }
+    .menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .dish { overflow: hidden; border: 1px solid var(--line); background: white; box-shadow: 0 10px 30px #252b230b; }
+    .dish[hidden] { display: none; }
+    .dish img { width: 100%; height: 210px; object-fit: cover; }
+    .dish-body { padding: 17px; }
+    .dish-title { display: flex; align-items: start; justify-content: space-between; gap: 10px; }
+    .dish h3 { margin: 0; font-size: 1.15rem; }
+    .dish p { min-height: 76px; color: #68716b; font-size: .87rem; }
+    .dish .button { width: 100%; min-height: 42px; padding: 9px; font-size: .85rem; }
+    .menu-note { margin: 26px 0 0; color: #68716b; text-align: center; font-size: .85rem; }
+
+    .reservation { background: var(--green); color: white; }
+    .reservation .section-heading p { color: #c4cec7; }
+    .booking-layout { display: grid; grid-template-columns: 1fr .8fr; align-items: start; gap: 42px; }
+    .booking-card { padding: clamp(22px, 4vw, 38px); background: var(--paper); color: var(--green); }
+    .booking-card h3, .contact h3 { margin: 0 0 8px; font-size: 1.8rem; }
+    .booking-card > p { color: #68716b; font-size: .9rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 22px; }
+    .field { display: grid; gap: 6px; }
+    .field-full { grid-column: 1 / -1; }
+    .field label { font-size: .82rem; font-weight: 700; }
+    .field input, .field select, .field textarea { width: 100%; min-height: 46px; padding: 10px; border: 1px solid #d9d4c8; border-radius: 4px; background: white; color: var(--green); }
+    .field textarea { min-height: 90px; resize: vertical; }
+    .booking-card .button { width: 100%; margin-top: 18px; }
+    .help { margin: 10px 0 0; color: #68716b; font-size: .78rem; }
+    .contact p { color: #d3ddd6; }
+    .contact-line { padding: 15px 0; border-top: 1px solid #ffffff2b; }
+    .contact-line strong { display: block; color: #dfc99e; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; }
+    .contact a { color: white; text-decoration: none; }
+    .map-link { display: inline-block; margin-top: 12px; color: #dfc99e !important; }
+
+    .faq { max-width: 800px; margin: auto; }
+    details { padding: 19px 0; border-bottom: 1px solid var(--line); }
+    summary { cursor: pointer; font: 600 1.15rem var(--serif); }
+    details p { margin: 12px 0 0; color: #68716b; }
+    footer { padding: 38px 0; background: #f0eadc; text-align: center; }
+    footer p { margin: 5px 0; color: #68716b; font-size: .85rem; }
+    .whatsapp { position: fixed; right: 20px; bottom: 20px; z-index: 8; display: grid; width: 58px; height: 58px; place-items: center; border-radius: 50%; background: #25d366; color: white; box-shadow: 0 8px 25px #0003; font-size: 1.7rem; text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .nav-toggle { display: block; }
+      .nav-links { position: absolute; top: 74px; right: -18px; left: -18px; display: none; flex-direction: column; gap: 14px; padding: 18px; border-bottom: 1px solid var(--line); background: var(--paper); }
+      .nav-links.open { display: flex; }
+      .nav-inner > .button { display: none; }
+      .no-js .nav-toggle { display: none; }
+      .no-js .nav-links { position: static; display: flex; flex-direction: column; padding: 10px 0; border: 0; }
+      .story, .booking-layout { grid-template-columns: 1fr; gap: 32px; }
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .container { width: calc(100% - 28px); }
+      .topbar-inner { justify-content: center; }
+      .topbar-inner span:last-child { display: none; }
+      .hero { min-height: 620px; }
+      .hero h1 { font-size: clamp(2.8rem, 14vw, 4.3rem); }
+      .section { padding: 68px 0; }
+      .menu-grid, .form-grid { grid-template-columns: 1fr; }
+      .field-full { grid-column: auto; }
+      .dish p { min-height: 0; }
+      .photo-frame img { height: 320px; }
+      .photo-label { right: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Avenue Habib Bourguiba · Tunis</span>
+      <span><a href="tel:+21622774032">Téléphone : +216 22 774 032</a></span>
+    </div>
+  </div>
+  <header class="nav">
+    <nav class="container nav-inner" aria-label="Navigation principale">
+      <a class="brand" href="#accueil">Dar <span>Couscous</span></a>
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#histoire">Notre histoire</a>
+        <a href="#carte">La carte</a>
+        <a href="#reservation">Réservation</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="button" href="#reservation">Réserver une table</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil" aria-labelledby="hero-title">
+      <img class="hero-image" src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="" width="2000" height="1333" fetchpriority="high">
+      <div class="container hero-content">
+        <span class="eyebrow">Une table au cœur de Tunis</span>
+        <h1 id="hero-title">Le goût de la Tunisie,<br><em>à partager.</em></h1>
+        <p class="hero-copy">Bienvenue chez Dar Couscous. Retrouvez les saveurs généreuses de la cuisine tunisienne et le plaisir d’un repas partagé.</p>
+        <div class="hero-actions">
+          <a class="button" href="#carte">Découvrir la carte</a>
+          <a class="button button-outline" href="#reservation">Nous contacter</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="histoire">
+      <div class="container story">
+        <div class="photo-frame">
+          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=1000&amp;q=75" alt="Un repas convivial composé de plats à partager" width="1000" height="750" loading="lazy" decoding="async">
+          <span class="photo-label">Bienvenue à notre table</span>
+        </div>
+        <div class="story-copy">
+          <span class="eyebrow">Dar Couscous · Tunis</span>
+          <h2>Une cuisine généreuse, un accueil chaleureux</h2>
+          <p>Chez Dar Couscous, nous aimons les plats qui rassemblent et les repas qui prennent leur temps. Notre table met à l’honneur les inspirations tunisiennes dans un cadre accueillant.</p>
+          <p>Envie de nous rendre visite ? Contactez-nous pour toute question ou demande de réservation.</p>
+          <div class="tags" aria-label="Nos valeurs">
+            <span class="tag">Saveurs tunisiennes</span>
+            <span class="tag">Repas à partager</span>
+            <span class="tag">Accueil chaleureux</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section menu-section" id="carte">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">À découvrir</span>
+          <h2>Un avant-goût de la carte</h2>
+          <p>Quelques classiques aux inspirations tunisiennes. Contactez-nous pour connaître la carte et les disponibilités du jour.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filtrer les plats">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">Tout voir</button>
+          <button class="filter" type="button" data-filter="couscous" aria-pressed="false">Couscous</button>
+          <button class="filter" type="button" data-filter="plats" aria-pressed="false">Plats tunisiens</button>
+        </div>
+        <div class="menu-grid" aria-live="polite">
+          <article class="dish" data-category="couscous">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&amp;fit=crop&amp;w=700&amp;q=70" alt="Assiette colorée de légumes et herbes fraîches" width="700" height="470" loading="lazy" decoding="async">
+            <div class="dish-body">
+              <div class="dish-title"><h3>Couscous aux légumes</h3></div>
+              <p>Semoule légère accompagnée de légumes mijotés et d’épices parfumées.</p>
+              <a class="button" href="#reservation">Demander la carte</a>
+            </div>
+          </article>
+          <article class="dish" data-category="couscous">
+            <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&amp;fit=crop&amp;w=700&amp;q=70" alt="Plat traditionnel servi au centre de la table" width="700" height="470" loading="lazy" decoding="async">
+            <div class="dish-body">
+              <div class="dish-title"><h3>Couscous traditionnel</h3></div>
+              <p>Un grand classique convivial, à savourer autour d’une belle table.</p>
+              <a class="button" href="#reservation">Demander la carte</a>
+            </div>
+          </article>
+          <article class="dish" data-category="plats">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&amp;fit=crop&amp;w=700&amp;q=70" alt="Assortiment de mets préparés pour un repas convivial" width="700" height="470" loading="lazy" decoding="async">
+            <div class="dish-body">
+              <div class="dish-title"><h3>Brik tunisienne</h3></div>
+              <p>Une entrée croustillante inspirée d’un incontournable de la cuisine tunisienne.</p>
+              <a class="button" href="#reservation">Demander la carte</a>
+            </div>
+          </article>
+          <article class="dish" data-category="plats">
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=700&amp;q=70" alt="Plat à partager dans une ambiance chaleureuse" width="700" height="470" loading="lazy" decoding="async">
+            <div class="dish-body">
+              <div class="dish-title"><h3>Spécialités du jour</h3></div>
+              <p>Les suggestions varient : écrivez-nous pour connaître les plats disponibles.</p>
+              <a class="button" href="#reservation">Demander la carte</a>
+            </div>
+          </article>
+        </div>
+        <p class="menu-note">Exemples illustratifs, à confirmer avec le restaurant. Contactez-nous pour connaître la carte et les disponibilités à jour.</p>
+      </div>
+    </section>
+
+    <section class="section reservation" id="reservation">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">À bientôt chez nous</span>
+          <h2>Parlons de votre visite</h2>
+          <p>Envoyez-nous une demande de réservation par WhatsApp. Nous vous confirmerons directement la disponibilité.</p>
+        </div>
+        <div class="booking-layout">
+          <form class="booking-card" id="booking-form">
+            <h3>Demande de réservation</h3>
+            <p>Remplissez les informations et votre message s’ouvrira dans WhatsApp pour être envoyé.</p>
+            <div class="form-grid">
+              <div class="field">
+                <label for="guest-name">Votre nom</label>
+                <input id="guest-name" name="name" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="guest-count">Nombre de personnes</label>
+                <select id="guest-count" name="guests" required>
+                  <option value="1">1 personne</option>
+                  <option value="2" selected>2 personnes</option>
+                  <option value="3">3 personnes</option>
+                  <option value="4">4 personnes</option>
+                  <option value="5">5 personnes</option>
+                  <option value="6">6 personnes</option>
+                  <option value="7+">7 personnes ou plus</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="visit-date">Date souhaitée</label>
+                <input id="visit-date" name="date" type="date" required>
+              </div>
+              <div class="field">
+                <label for="visit-time">Heure souhaitée</label>
+                <input id="visit-time" name="time" type="time" required>
+              </div>
+              <div class="field field-full">
+                <label for="booking-note">Message (facultatif)</label>
+                <textarea id="booking-note" name="note" rows="3"></textarea>
+              </div>
+            </div>
+            <button class="button" type="submit">Continuer sur WhatsApp</button>
+            <p class="help">Votre demande n’est pas confirmée tant que nous ne vous avons pas répondu.</p>
+          </form>
+
+          <aside class="contact" id="contact">
+            <h3>Nous trouver</h3>
+            <p>Une question sur la carte ou votre réservation ? Écrivez-nous ou appelez-nous.</p>
+            <div class="contact-line">
+              <strong>Adresse</strong>
+              <span>Avenue Habib Bourguiba · Tunis</span>
+            </div>
+            <div class="contact-line">
+              <strong>Téléphone</strong>
+              <a href="tel:+21622774032">+216 22 774 032</a>
+            </div>
+            <div class="contact-line">
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/21622774032" target="_blank" rel="noopener noreferrer">Écrire à Dar Couscous</a>
+            </div>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Avenue+Habib+Bourguiba%2C+Tunis" target="_blank" rel="noopener noreferrer">Voir l’adresse sur la carte ↗</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Questions fréquentes</span>
+          <h2>Avant de venir</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Comment demander une réservation ?</summary>
+            <p>Remplissez le formulaire ou contactez-nous directement par téléphone ou WhatsApp. Nous vous répondrons pour confirmer la disponibilité.</p>
+          </details>
+          <details>
+            <summary>La réservation est-elle confirmée tout de suite ?</summary>
+            <p>Non. Il s’agit d’une demande envoyée par WhatsApp. Votre réservation sera confirmée après notre réponse.</p>
+          </details>
+          <details>
+            <summary>Où se trouve Dar Couscous ?</summary>
+            <p>Nous sommes indiqués Avenue Habib Bourguiba à Tunis. Utilisez le lien de carte ou appelez-nous pour préciser votre itinéraire.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <a class="brand" href="#accueil">Dar <span>Couscous</span></a>
+      <p>Cuisine tunisienne à Tunis</p>
+      <p>© <span id="year"></span> Dar Couscous</p>
+    </div>
+  </footer>
+  <a class="whatsapp" href="https://wa.me/21622774032" target="_blank" rel="noopener noreferrer" aria-label="Contacter Dar Couscous sur WhatsApp">WA</a>
+
+  <script>
+    document.documentElement.classList.remove("no-js");
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const visitDate = document.querySelector("#visit-date");
+    const today = new Date();
+    visitDate.min = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+      .toISOString()
+      .slice(0, 10);
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+      navToggle.setAttribute("aria-expanded", String(!isOpen));
+      navToggle.setAttribute("aria-label", isOpen ? "Ouvrir le menu" : "Fermer le menu");
+      navLinks.classList.toggle("open", !isOpen);
+    });
+
+    navLinks.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Ouvrir le menu");
+        navLinks.classList.remove("open");
+      }
+    });
+
+    const filterButtons = document.querySelectorAll(".filter");
+    const dishes = document.querySelectorAll(".dish");
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const category = button.dataset.filter;
+        filterButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        dishes.forEach((dish) => {
+          dish.hidden = category !== "all" && dish.dataset.category !== category;
+        });
+      });
+    });
+
+    document.querySelector("#booking-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const message = [
+        "Bonjour Dar Couscous, je souhaite demander une réservation.",
+        `Nom : ${formData.get("name")}`,
+        `Nombre de personnes : ${formData.get("guests")}`,
+        `Date : ${formData.get("date")}`,
+        `Heure : ${formData.get("time")}`,
+        formData.get("note") ? `Message : ${formData.get("note")}` : ""
+      ].filter(Boolean).join("\n");
+      window.open(`https://wa.me/21622774032?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+    });
+
+    document.querySelector("#year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
